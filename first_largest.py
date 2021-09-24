@@ -16,13 +16,20 @@ def largest_element(a, loc=True):
     return maxval
 
 def largest_elz(a, loc=False):
-        maxval=a[2]
-        for(i,e) in enumerate(a):
-            if a[e]>maxval:
-                maxval=a[e]
-        return maxval, 2
+        try:
+            maxval=a[2]
+            for(i,e) in enumerate(a):
+                if a[e]>maxval:
+                    maxval=a[e]
+            return maxval, 2
+        except TypeError:
+            print("this is a problem")
+            return -1
+        except:
+            print("Unexpected error:")
+            raise
 
 if __name__ == "__main__":
 
-    a=[1,2,3,2,1]
+    a=[1,'a',2]
     print("Largest element is {:}".format(largest_elz(a, loc=True)))
